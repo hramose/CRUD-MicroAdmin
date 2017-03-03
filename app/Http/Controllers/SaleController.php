@@ -15,28 +15,19 @@ class SaleController extends Controller
 
     public function manageVue()
     {
-        $users = Sale::select('sales.id as id', 'users.name as user_id', 'items.title as item_id')
-            ->join('users', 'users.id', '=', 'sales.user_id')
-            ->join('items', 'items.id', '=', 'sales.item_id')
-            ->paginate(5);
 
-        //dd($users);
+        $users = User::all();
+        $items = Item::all();
 
-
-        return view('sales');
+        return view('sales', compact('users', 'items'));
     }
 
-    public function returnDatails($id)
-    {
-
-
-    }
 
     public function index(Request $request)
     {
 
 
-        $users = Sale::select('sales.id as id', 'users.id as user_id', 'items.id as item_id')
+        $users = Sale::select('sales.id as id', 'users.name as user', 'items.title as item', 'items.price as price', 'sales.created_at as date')
             ->join('users', 'users.id', '=', 'sales.user_id')
             ->join('items', 'items.id', '=', 'sales.item_id')
             ->paginate(5);
@@ -54,7 +45,7 @@ class SaleController extends Controller
             'data' => $users
         ];
 
-        return dd($users);
+        return response()->json($response);
     }
 
     public function store(Request $request)

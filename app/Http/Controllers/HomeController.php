@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Sale;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +15,8 @@ class HomeController extends Controller
     {
         $users = User::all()->count();
         $products = Item::all()->count();
+        $sales = Sale::all()->count();
 
-        return view('home', compact('users', 'products'));
+        return view('home', compact('users', 'products', 'sales'));
     }
 }

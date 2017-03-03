@@ -8,11 +8,11 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Products</h2>
+                    <h2>Sales</h2>
                 </div>
                 <div class="pull-right">
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-item">
-                        New Product
+                        Register a Sale
                     </button>
                 </div>
             </div>
@@ -21,19 +21,24 @@
         <!-- Item Listing -->
         <table class="table table-bordered">
             <tr>
-                <th>Title</th>
+                <th>User</th>
+                <th>Product</th>
                 <th>Price</th>
+                <th>Date</th>
                 <th width="200px">Action</th>
             </tr>
             <tr v-for="sale in sales">
-                <td>@{{ sale.user_id }}</td>
-                <td>@{{ sale.item_id }}</td>
+                <td>@{{ sale.user }}</td>
+                <td>@{{ sale.item }}</td>
+                <td>@{{ sale.price | currency }}</td>
+                <td>@{{ sale.date }}</td>
                 <td>
-                    <button class="btn btn-primary" @click.prevent="editItem(sale)">Edit</button>
+
                     <button class="btn btn-danger" @click.prevent="deleteItem(sale)">Delete</button>
                 </td>
             </tr>
         </table>
+
 
         <!-- Pagination -->
         <nav>
@@ -71,14 +76,25 @@
                         <form method="POST" enctype="multipart/form-data" v-on:submit.prevent="createItem">
 
                             <div class="form-group">
-                                <label for="title">Title:</label>
-                                <input type="text" name="user_id" class="form-control" v-model="newItem.user_id" />
+                                <label for="title">Select an User:</label>
+
+                                <select name="user_id" class="form-control" v-model="newItem.user_id">
+                                    @foreach($users as $user)
+                                        <option value="{{ $user->id  }}" selected>{{ $user->name  }}</option>
+                                    @endforeach
+                                </select>
                                 <span v-if="formErrors['user_id']" class="error text-danger">@{{ formErrors['user_id'] }}</span>
                             </div>
 
                             <div class="form-group">
-                                <label for="title">Price:</label>
-                                <input type="text" name="item_id" class="form-control" v-model="newItem.item_id" />
+                                <label for="title">Select an Item:</label>
+
+                                <select name="item_id" class="form-control" v-model="newItem.item_id">
+                                    @foreach($items as $item)
+                                        <option value="{{ $item->id  }}" selected>{{ $item->title  }}</option>
+                                    @endforeach
+                                </select>
+
                                 <span v-if="formErrors['item_id']" class="error text-danger">@{{ formErrors['item_id'] }}</span>
                             </div>
 

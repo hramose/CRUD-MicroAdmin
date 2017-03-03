@@ -17,7 +17,7 @@ new Vue({
         formErrors:{},
         formErrorsUpdate:{},
         newItem : {'user_id':'','item_id':''},
-        fillItem : {'user_id':'','item_id':'','id':''}
+        fillItem : {'user':'','item':'', 'price':'', 'date':'', 'id':''}
     },
 
 
@@ -84,8 +84,10 @@ new Vue({
         },
 
         editItem: function(item){
-            this.fillItem.user_id = item.user_id;
-            this.fillItem.item_id = item.item_id;
+            this.fillItem.user = item.user;
+            this.fillItem.item = item.item;
+            this.fillItem.price = item.price;
+            this.fillItem.date = item.date;
             this.fillItem.id = item.id;
             $("#edit-item").modal('show');
         },

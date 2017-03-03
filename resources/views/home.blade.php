@@ -39,7 +39,7 @@
                 </div>
                 <div class="details">
                     <div class="number">
-                        <span data-counter="counterup" data-value="12,5">0</span>M$ </div>
+                        {{ $sales  }} </div>
                     <div class="desc"> Sales </div>
                 </div>
             </a>
