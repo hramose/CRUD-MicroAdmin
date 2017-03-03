@@ -3,10 +3,10 @@
 
 A CRUD Microd Admin exemple using PHP Laravel and VueJS.
 
-Developed for the Transcopo Company as a test.
+Developed for the Transpoco Company as a test.
 
 Request: <br>
-<small><code>At this point I would like to start with a little test, could you make an CRUD app (what the app does is up to you) using Javascript as frontend (a framework if you want) + Php as the REST Api (a framework if you want).
+<small><code>I would like to start with a little test, could you make an CRUD app (what the app does is up to you) using Javascript as frontend (a framework if you want) + Php as the REST Api (a framework if you want).
 </code></small>
 
 ## Used on this project
@@ -25,5 +25,5 @@ Request: <br>
 - Sales (register a sale)
 
 ## Importing the tables
-Run the code <code> php artisan migrate </code>
+Run <code> php artisan migrate </code>
 
