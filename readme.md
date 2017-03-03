@@ -5,9 +5,7 @@ A CRUD Microd Admin exemple using PHP Laravel and VueJS.
 
 Developed for the Transcopo Company as a test.
 
-Request: <br>
-<code>
-At this point I would like to start with a little test, could you make an CRUD app (what the app does is up to you) using Javascript as frontend (a framework if you want) + Php as the REST Api (a framework if you want).
+Request: <code>At this point I would like to start with a little test, could you make an CRUD app (what the app does is up to you) using Javascript as frontend (a framework if you want) + Php as the REST Api (a framework if you want).
 </code>
 
 ## Used on this project
