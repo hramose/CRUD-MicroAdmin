@@ -13,6 +13,8 @@
 
 
 // HOME //
+
+Route::get('/', 'HomeController@manageVue');
 Route::get('/home/', 'HomeController@manageVue');
 
 // ITEMS //

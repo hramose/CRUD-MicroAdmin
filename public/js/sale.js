@@ -70,7 +70,7 @@ new Vue({
                 this.changePage(this.pagination.current_page);
             this.newItem = {'user_id':'','item_id':''};
             $("#create-item").modal('hide');
-            toastr.success('Product Created Successfully.', 'Success Alert', {timeOut: 5000});
+            toastr.success('Sale Created Successfully.', 'Success Alert', {timeOut: 5000});
         }, (response) => {
                 this.formErrors = response.data;
             });
@@ -79,7 +79,7 @@ new Vue({
         deleteItem: function(item){
             this.$http.delete('/vuesales/'+item.id).then((response) => {
                 this.changePage(this.pagination.current_page);
-            toastr.success('Product Deleted Successfully.', 'Success Alert', {timeOut: 5000});
+            toastr.success('Sale Deleted Successfully.', 'Success Alert', {timeOut: 5000});
         });
         },
 
@@ -98,7 +98,7 @@ new Vue({
                 this.changePage(this.pagination.current_page);
             this.fillItem = {'user_id':'','item_id':'','id':''};
             $("#edit-item").modal('hide');
-            toastr.success('Product Updated Successfully.', 'Success Alert', {timeOut: 5000});
+            toastr.success('Sale Updated Successfully.', 'Success Alert', {timeOut: 5000});
         }, (response) => {
                 this.formErrorsUpdate = response.data;
             });

@@ -51,8 +51,8 @@
                     <i class="fa fa-globe"></i>
                 </div>
                 <div class="details">
-                    <div class="number">Leandro Pereira</div>
-                    <div class="desc"> Customers of the week </div>
+                    <div class="number">Transcopo Test</div>
+                    <div class="desc">Developed by Leandro Pereira </div>
                 </div>
             </a>
         </div>
