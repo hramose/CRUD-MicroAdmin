@@ -11,5 +11,13 @@
 |
 */
 
-Route::get('/', 'VueItemController@manageVue');
-Route::resource('vueitems','VueItemController');
+// ITEMS //
+Route::get('/items/', 'ItemController@manageVue');
+Route::resource('vueitems','ItemController');
+
+// USERS //
+Route::get('/users/', 'UserController@manageVue');
+Route::resource('vueusers','UserController');
+
+// HOME //
+Route::get('/home/', 'HomeController@manageVue');

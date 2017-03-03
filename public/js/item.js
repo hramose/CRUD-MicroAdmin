@@ -20,6 +20,10 @@ new Vue({
         fillItem : {'title':'','description':'','id':''}
     },
 
+    Vue.filter('truncate', function (text, stop, clamp) {
+    return text.slice(0, stop) + (stop < text.length ? clamp || '...' : '')
+    }),
+
     computed: {
         isActived: function () {
             return this.pagination.current_page;
@@ -49,7 +53,11 @@ new Vue({
         this.getVueItems(this.pagination.current_page);
     },
 
-    methods : {
+
+
+
+
+        methods : {
 
         getVueItems: function(page){
             this.$http.get('/vueitems?page='+page).then((response) => {
