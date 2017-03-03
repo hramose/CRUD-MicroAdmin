@@ -22,12 +22,14 @@
     <table class="table table-bordered">
         <tr>
             <th>Title</th>
+            <th>Price</th>
             <th>Description</th>
             <th width="200px">Action</th>
         </tr>
         <tr v-for="item in items">
             <td>@{{ item.title }}</td>
-            <td>@{{ item.description | truncate 1 }}</td>
+            <td>@{{ item.price | currency  }}</td>
+            <td>@{{ item.description }}</td>
             <td>
                 <button class="btn btn-primary" @click.prevent="editItem(item)">Edit</button>
                 <button class="btn btn-danger" @click.prevent="deleteItem(item)">Delete</button>
@@ -77,6 +79,12 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="title">Price:</label>
+                            <input type="text" name="price" class="form-control" v-model="newItem.price | currency" />
+                            <span v-if="formErrors['price']" class="error text-danger">@{{ formErrors['price'] }}</span>
+                        </div>
+
+                        <div class="form-group">
                             <label for="title">Description:</label>
                             <textarea name="description" class="form-control" v-model="newItem.description"></textarea>
                             <span v-if="formErrors['description']" class="error text-danger">@{{ formErrors['description'] }}</span>
@@ -110,6 +118,13 @@
                             <label for="title">Title:</label>
                             <input type="text" name="title" class="form-control" v-model="fillItem.title" />
                             <span v-if="formErrorsUpdate['title']" class="error text-danger">@{{ formErrorsUpdate['title'] }}</span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="title">Price:</label>
+                            <input type="text" name="price" class="form-control" v-model="fillItem.price | currency" />
+                            <span v-if="formErrorsUpdate['price']" class="error text-danger">@{{ formErrorsUpdate['price'] }}</span>
                         </div>
 
                         <div class="form-group">

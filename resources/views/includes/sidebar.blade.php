@@ -41,7 +41,7 @@
 
                 <li class="nav-item  ">
                     <a href="/items/" class="nav-link ">
-                        <span class="title">Items</span>
+                        <span class="title">Products</span>
                     </a>
                 </li>
             </ul>
@@ -59,16 +59,11 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="/users/" class="nav-link ">
+                    <a href="/sales/" class="nav-link ">
                         <span class="title">Sales</span>
                     </a>
                 </li>
 
-                <li class="nav-item  ">
-                    <a href="/items/" class="nav-link ">
-                        <span class="title">Relatories</span>
-                    </a>
-                </li>
             </ul>
 
 

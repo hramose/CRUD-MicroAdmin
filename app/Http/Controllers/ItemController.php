@@ -37,8 +37,9 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|min:6|unique:items',
+            'description' => 'required|min:6',
+            'price' => 'required|numeric',
         ]);
 
         $create = Item::create($request->all());
@@ -50,8 +51,9 @@ class ItemController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|min:6',
+            'description' => 'required|min:6',
+            'price' => 'required|numeric',
         ]);
 
         $edit = Item::find($id)->update($request->all());

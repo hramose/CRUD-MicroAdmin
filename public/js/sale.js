@@ -2,7 +2,7 @@ Vue.http.headers.common['X-CSRF-TOKEN'] = $("#token").attr("value");
 
 new Vue({
 
-    el: '#manage-vue',
+    el: '#sales',
 
     data: {
         items: [],
@@ -16,8 +16,8 @@ new Vue({
         offset: 4,
         formErrors:{},
         formErrorsUpdate:{},
-        newItem : {'title':'','price':'','description':''},
-        fillItem : {'title':'','price':'','description':'','id':''}
+        newItem : {'user_id':'','item_id':''},
+        fillItem : {'user_id':'','item_id':'','id':''}
     },
 
 
@@ -55,20 +55,20 @@ new Vue({
 
 
 
-        methods : {
+    methods : {
 
         getVueItems: function(page){
-            this.$http.get('/vueitems?page='+page).then((response) => {
-                this.$set('items', response.data.data.data);
+            this.$http.get('/vuesales?page='+page).then((response) => {
+                this.$set('sales', response.data.data.data);
             this.$set('pagination', response.data.pagination);
         });
         },
 
         createItem: function(){
             var input = this.newItem;
-            this.$http.post('/vueitems',input).then((response) => {
+            this.$http.post('/vuesales',input).then((response) => {
                 this.changePage(this.pagination.current_page);
-            this.newItem = {'title':'','price':'','description':''};
+            this.newItem = {'user_id':'','item_id':''};
             $("#create-item").modal('hide');
             toastr.success('Product Created Successfully.', 'Success Alert', {timeOut: 5000});
         }, (response) => {
@@ -77,25 +77,24 @@ new Vue({
         },
 
         deleteItem: function(item){
-            this.$http.delete('/vueitems/'+item.id).then((response) => {
+            this.$http.delete('/vuesales/'+item.id).then((response) => {
                 this.changePage(this.pagination.current_page);
             toastr.success('Product Deleted Successfully.', 'Success Alert', {timeOut: 5000});
         });
         },
 
         editItem: function(item){
-            this.fillItem.title = item.title;
-            this.fillItem.price = item.price;
-            this.fillItem.description = item.description;
+            this.fillItem.user_id = item.user_id;
+            this.fillItem.item_id = item.item_id;
             this.fillItem.id = item.id;
             $("#edit-item").modal('show');
         },
 
         updateItem: function(id){
             var input = this.fillItem;
-            this.$http.put('/vueitems/'+id,input).then((response) => {
+            this.$http.put('/vuesales/'+id,input).then((response) => {
                 this.changePage(this.pagination.current_page);
-            this.fillItem = {'title':'','price':'','description':'','id':''};
+            this.fillItem = {'user_id':'','item_id':'','id':''};
             $("#edit-item").modal('hide');
             toastr.success('Product Updated Successfully.', 'Success Alert', {timeOut: 5000});
         }, (response) => {

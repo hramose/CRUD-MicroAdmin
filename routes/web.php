@@ -11,6 +11,10 @@
 |
 */
 
+
+// HOME //
+Route::get('/home/', 'HomeController@manageVue');
+
 // ITEMS //
 Route::get('/items/', 'ItemController@manageVue');
 Route::resource('vueitems','ItemController');
@@ -19,5 +23,8 @@ Route::resource('vueitems','ItemController');
 Route::get('/users/', 'UserController@manageVue');
 Route::resource('vueusers','UserController');
 
-// HOME //
-Route::get('/home/', 'HomeController@manageVue');
+// SALES //
+
+Route::get('/sales/', 'SaleController@manageVue');
+Route::resource('vuesales','SaleController');
+

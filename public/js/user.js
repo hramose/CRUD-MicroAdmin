@@ -17,7 +17,7 @@ new Vue({
         formErrors:{},
         formErrorsUpdate:{},
         newUser : {'name':'','surname':'','email':'','password':''},
-        fillUser : {'name':'','surname':'', 'email':'','password':'','id':''}
+        fillUser : {'name':'','surname':'', 'email':'', 'password':'','id':''}
     },
 
     computed: {
@@ -64,7 +64,7 @@ new Vue({
                 this.changePage(this.pagination.current_page);
             this.newUser = {'name':'','surname':'','email':'','password':''};
             $("#create-user").modal('hide');
-            toastr.success('Item Created Successfully.', 'Success Alert', {timeOut: 5000});
+            toastr.success('User Created Successfully.', 'Success Alert', {timeOut: 5000});
         }, (response) => {
                 this.formErrors = response.data;
             });
@@ -73,7 +73,7 @@ new Vue({
         deleteUser: function(user){
             this.$http.delete('/vueusers/'+user.id).then((response) => {
                 this.changePage(this.pagination.current_page);
-            toastr.success('Item Deleted Successfully.', 'Success Alert', {timeOut: 5000});
+            toastr.success('User Deleted Successfully.', 'Success Alert', {timeOut: 5000});
         });
         },
 
@@ -92,10 +92,10 @@ new Vue({
                 this.changePage(this.pagination.current_page);
             this.fillUser = {'name':'','surname':'','email':'','password':'','id':''};
             $("#edit-user").modal('hide');
-            toastr.success('Item Updated Successfully.', 'Success Alert', {timeOut: 5000});
+            toastr.success('User Updated Successfully.', 'Success Alert', {timeOut: 5000});
         }, (response) => {
                 this.formErrorsUpdate = response.data;
-                toastr.success(response.data, 'Success Alert', {timeOut: 5000});
+                toastr.success(response.data, 'Error Alert', {timeOut: 5000});
             });
         },
 

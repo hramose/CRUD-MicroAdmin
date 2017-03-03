@@ -92,7 +92,7 @@
 
                             <div class="form-group">
                                 <label for="title">Password:</label>
-                                <input type="text" name="password" class="form-control" v-model="newUser.password" />
+                                <input type="password" name="password" class="form-control" v-model="newUser.password" />
                                 <span v-if="formErrors['password']" class="error text-danger">@{{ formErrors['password'] }}</span>
                             </div>
 
@@ -119,7 +119,7 @@
                     </div>
                     <div class="modal-body">
 
-                        <form method="POST" enctype="multipart/form-data" v-on:submit.prevent="updateUser(fillUser.)">
+                        <form method="POST" enctype="multipart/form-data" v-on:submit.prevent="updateUser(fillUser.id)">
 
                             <div class="form-group">
                                 <label for="title">Name:</label>
@@ -141,7 +141,7 @@
 
                             <div class="form-group">
                                 <label for="title">Password:</label>
-                                <input type="text" name="password" class="form-control" v-model="fillUser.password" />
+                                <input type="password" name="password" class="form-control" v-model="" />
                                 <span v-if="formErrorsUpdate['password']" class="error text-danger">@{{ formErrorsUpdate['password'] }}</span>
                             </div>
 

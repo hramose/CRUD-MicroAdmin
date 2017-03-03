@@ -14,4 +14,8 @@
 <!-- VUE USERS -->
 <script type="text/javascript" src="/js/user.js"></script>
 
+<!-- VUE SALES -->
+<script type="text/javascript" src="/js/sale.js"></script>
+
+
 
